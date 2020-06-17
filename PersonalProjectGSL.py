@@ -66,11 +66,11 @@ def create_csv():
         df = df.append(GSLWebpageParser('https://liquipedia.net' + link))
     if os.path.isfile('gsl_data.csv'):
         os.remove('gsl_data.csv')
-    df.to_csv('gsl_data.csv', index_label = 'index')
+    df.to_csv('gsl_data.csv', index_label = 'Place')
 
 def read_csv():
     global df
-    df = pd.read_csv('gsl_data.csv', index_col = 'index')
+    df = pd.read_csv('gsl_data.csv', index_col = 'Place')
     ghf.createFrames(df)
 
 def beginProcess():

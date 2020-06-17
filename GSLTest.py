@@ -52,11 +52,11 @@ def GSLWebpageParser(URL):
         try:
             country = player[0]['title']
             race = player[1]['title']
-            name = player[2]['title']
+            name = player[2].text
         except:
             country = player[1]['title']
             race = player[2]['title']
-            name = player[3]['title']
+            name = player[3].text
         
         player_list.append(race)
         player_list.append(country)

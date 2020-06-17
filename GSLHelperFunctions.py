@@ -9,14 +9,18 @@ import pandas as pd
 pd.options.mode.chained_assignment = None
 global rf
 global df
+global cf
 
 def createFrames(df2):
     #@var rf Players with their aggregate earnings, easy to query and sort
     global rf
     #@var df Total dataframe
     global df
+    #@var cf Country data
+    global cf
     df = df2
     rf = df.drop(columns=['Tournament', 'Place', 'Team']).groupby('Player', as_index = False).sum()
+    cf = df.drop(columns=['Race', 'Player', 'Tournament', 'Place', 'Team']).groupby('Country', as_index = False).sum()
 
 def findPlayerWorth(playerName):
     try:
@@ -93,3 +97,10 @@ def createCompareSeries(playerName):
 
 def compareTwoPlayers(player1, player2):
     return pd.concat([createCompareSeries(player1), createCompareSeries(player2)], axis=1)
+
+def topCountryEarnings():
+    global cf
+    return cf.sort_values(by='$USD', ascending=False)
+
+def promptRace(playerName):
+    temp 
