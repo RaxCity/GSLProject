@@ -10,7 +10,7 @@ Personal project to help me learn some python web scraping. Parsing Liquipedia's
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-from GSLWebpageParser import GSLWebpageParser
+from GSLTest import GSLWebpageParser
 import GSLHelperFunctions as ghf
 import os
 
